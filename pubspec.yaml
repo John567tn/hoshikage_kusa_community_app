@@ -1,0 +1,33 @@
+name: hoshikage_kusa_hofa_app
+description: "星影茸社区 Flutter App"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # UI 和图标
+  lucide_icons: ^0.257.0
+  flutter_svg: ^2.0.9
+  
+  # 网络
+  http: ^1.2.1
+  
+  # 本地存储
+  shared_preferences: ^2.2.3
+  
+  # 跳转
+  url_launcher: ^6.3.0
+  share_plus: ^8.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
