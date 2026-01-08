@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import '../models/event.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../utils/date_utils.dart';
 
 class EventCard extends StatelessWidget {
   final Event event;
@@ -52,7 +54,25 @@ class EventCard extends StatelessWidget {
                 Icon(LucideIcons.mapPin, size: 14, color: Colors.grey[600]),
                 const SizedBox(width: 4),
                 Expanded(child: Text(event.location, style: TextStyle(fontSize: 12, color: Colors.grey[600]))),
+                const Spacer(),
+                 const Spacer(),
+            // 倒计时标签
+             Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                   color: Colors.green[100],
+                   borderRadius: BorderRadius.circular(12),
+                  ),
+                child: Text(
+                    getCountdownText(event.date),
+                   style: TextStyle(fontSize: 12, color: Colors.green[800]),
+                 ),
+                ),
+               if (event.isPinned) ...[
+                   const SizedBox(width: 8),
+                   const Icon(LucideIcons.pin, size: 16, color: Colors.purple),
               ],
+            ],
             ),
             const SizedBox(height: 8),
             // 内容
@@ -61,12 +81,15 @@ class EventCard extends StatelessWidget {
             // 按钮
             if (event.url != null)
               ElevatedButton.icon(
-                onPressed: () {
-                  // TODO: 打开浏览器
-                },
-                icon: const Icon(LucideIcons.externalLink, size: 16),
-                label: const Text('了解活动详情'),
-              ),
+                onPressed: () async {
+                 final uri = Uri.parse(event.url!);
+                   if (await canLaunchUrl(uri)) {
+                     await launchUrl(uri, mode: LaunchMode.externalApplication);
+                   } 
+                 },
+                   icon: const Icon(LucideIcons.externalLink, size: 16),
+                   label: const Text('了解活动详情'),
+                ),
           ],
         ),
       ),

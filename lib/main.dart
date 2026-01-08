@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'screens/events_screen.dart'; // 
+import 'screens/events_screen.dart';
 
 void main() {
   runApp(const HoshikageApp());
@@ -13,16 +13,28 @@ class HoshikageApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: '星影茸社区',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: const Color(0xFFF8F9FA),
         fontFamily: 'NotoSansSC',
+        cardTheme: CardThemeData(
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+        ),
       ),
-      home: const HomeScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomeScreen(),
+        '/events': (context) => const EventsScreen(),
+      },
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatelessWidget { // ✅ 唯一一个 HomeScreen
   const HomeScreen({super.key});
 
   @override
@@ -31,12 +43,13 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('星影茸社区'),
         centerTitle: true,
+        elevation: 0,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(LucideIcons.home, size: 64, color: Colors.blue),
+            const Icon(LucideIcons.home, size: 64, color: Color(0xFF9C70FF)),
             const SizedBox(height: 16),
             const Text(
               '欢迎来到星影茸社区',
@@ -49,14 +62,15 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 32),
             ElevatedButton.icon(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const EventsScreen()),
-                );
-              },
+              onPressed: () => Navigator.pushNamed(context, '/events'),
               icon: const Icon(LucideIcons.map),
               label: const Text('查看兽聚资讯'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+              ),
             ),
           ],
         ),
