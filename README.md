@@ -1,4 +1,4 @@
-# hoshikage_kusa_hofa_app
+# hoshikage_kusa_hkfc_app
 
 A new Flutter project.
 
