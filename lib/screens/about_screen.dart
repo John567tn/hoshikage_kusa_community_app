@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../models/about_data.dart';
-import '../widgets/member_list_modal.dart';
+
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -10,8 +11,8 @@ class AboutScreen extends StatelessWidget {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.transparent, // 
-      builder: (context) => MemberListModal(title: title, members: members),
+      backgroundColor: Colors.transparent,
+      builder: (context) => _MemberBottomModal(title: title, members: members),
     );
   }
 
@@ -26,7 +27,6 @@ class AboutScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            // 顶部介绍
             Container(
               padding: const EdgeInsets.all(24),
               decoration: BoxDecoration(
@@ -94,6 +94,102 @@ class AboutScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _MemberBottomModal extends StatelessWidget {
+  final String title;
+  final List<Person> members;
+
+  const _MemberBottomModal({required this.title, required this.members});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.85,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+        boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.1), blurRadius: 20)],
+      ),
+      child: Column(
+        children: [
+          const SizedBox(height: 8),
+          Container(
+            width: 40,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.grey[300],
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Text(title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          ),
+          const Divider(height: 1),
+          Expanded(
+            child: ListView.builder(
+              itemCount: members.length,
+              itemBuilder: (context, index) => _buildMemberTile(members[index]),
+              addAutomaticKeepAlives: false,
+              addRepaintBoundaries: true,
+              addSemanticIndexes: false,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMemberTile(Person person) {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+      elevation: 0,
+      child: ListTile(
+        dense: true,
+        leading: _buildAvatar(person.avatar),
+        title: Text(person.name),
+        trailing: _buildSocialButtons(person),
+      ),
+    );
+  }
+
+  Widget _buildAvatar(String? path) {
+    if (path == null) return const CircleAvatar(child: Icon(LucideIcons.user));
+    
+    return ClipOval(
+      child: Image.asset(
+        path,
+        width: 40,
+        height: 40,
+        fit: BoxFit.cover,
+        cacheWidth: 80,
+        errorBuilder: (_, __, ___) => const CircleAvatar(child: Icon(LucideIcons.user)),
+      ),
+    );
+  }
+
+  Widget _buildSocialButtons(Person person) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        if (person.bilibili != null)
+          IconButton(
+            icon: const Icon(LucideIcons.tv, color: Colors.blue, size: 20),
+            onPressed: () => launchUrl(Uri.parse(person.bilibili!)),
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(minWidth: 36, minHeight: 36),
+          ),
+        if (person.douyin != null)
+          IconButton(
+            icon: const Icon(LucideIcons.music, color: Colors.black, size: 20),
+            onPressed: () => launchUrl(Uri.parse(person.douyin!)),
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(minWidth: 36, minHeight: 36),
+          ),
+      ],
     );
   }
 }

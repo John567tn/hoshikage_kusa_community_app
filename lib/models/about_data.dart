@@ -49,7 +49,7 @@ class Person {
 }
 
 final AboutData aboutData = AboutData(
-  description: 'Hoshikage Kusa 星影茸 • HOFA 社区...',
+  description: 'Hoshikage Kusa 星影茸社区，简称星影茸社区/HKFC，成立于2025年12月15日，是由UP主Gokugo极伍建立及主导的一个以福瑞文化为主的社区。作为一个为爱发电的非盈利性社区，我们为广大福瑞提供一个开放、包容、平等的交流、互动、扩列平台。每一片星影都值得被温柔对待，每一位成员都是社区最珍贵的宝藏。',
   founders: [
     Person(
       name: "Gokugo極伍", 
@@ -87,7 +87,7 @@ final AboutData aboutData = AboutData(
       name: "江沁", 
       bilibili: null, 
       douyin: null, 
-      avatar: null, // "assets/avatars/江沁.jpg" 
+      avatar: "assets/avatars/江沁.jpg" 
     ),
     Person( 
       name: "普岚-pulan", 

@@ -23,6 +23,7 @@ dependencies:
   # 跳转
   url_launcher: ^6.3.0
   share_plus: ^8.0.2
+  cached_network_image: ^3.4.0
 
 dev_dependencies:
   flutter_test:

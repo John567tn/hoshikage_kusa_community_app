@@ -41,19 +41,39 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = [
-    const HomeScreen(),
-    const EventsScreen(),
-    const AboutScreen(),
-  ];
+  final PageController _pageController = PageController();
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void _onItemTapped(int index) {
+    setState(() => _selectedIndex = index);
+    _pageController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 200),
+      curve: Curves.easeInOut,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex],
+      body: PageView(
+        controller: _pageController,
+        physics: const NeverScrollableScrollPhysics(), 
+        children: const [
+          HomeScreen(),
+          EventsScreen(),
+          AboutScreen(),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
-        onTap: (index) => setState(() => _selectedIndex = index),
+        onTap: _onItemTapped,
+        type: BottomNavigationBarType.fixed, 
         items: const [
           BottomNavigationBarItem(icon: Icon(LucideIcons.home), label: '首页'),
           BottomNavigationBarItem(icon: Icon(LucideIcons.map), label: '兽聚'),
@@ -63,6 +83,13 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
+
+
+  final List<Widget> _pages = [
+    const HomeScreen(),
+    const EventsScreen(),
+    const AboutScreen(),
+  ];
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
