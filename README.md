@@ -1,11 +1,11 @@
-#Hoshikage-Kusa-Furry-Community-HKFC_APP
+# Hoshikage-Kusa-Community-HKC_APP
 中文：
 
-[Hoshikage Kusa 星影茸 • HKFC社区 Github页面(软件)]
+[星影茸社区 Github页面(软件)]
 
 在这里，每一片星影都值得被温柔对待。
 
-Hoshikage Kusa 星影茸 • HKFC 社区，简称星影茸社区/HKFC，成立于2025年12月15日，是由UP主Gokugo极伍建立及主导的一个以福瑞文化为主的社区。作为一个为爱发电的非盈利性社区，我们为广大福瑞提供一个开放、包容、平等的交流、互动、扩列平台。
+Hoshikage Kusa 星影茸社区，简称星影茸社区/HKC，成立于2025年12月15日，是由UP主Gokugo极伍建立及主导的一个以福瑞文化为主的社区。作为一个为爱发电的非盈利性社区，我们为广大福瑞提供一个开放、包容、平等的交流、互动、扩列平台。
 
 本软件内容采用知识共享署名-非商业性使用 4.0 国际许可协议（CC BY-NC 4.0）
 
@@ -19,11 +19,11 @@ Hoshikage Kusa 星影茸 • HKFC 社区，简称星影茸社区/HKFC，成立�
 
 English:
 
-[Hoshikage Kusa Furry Community • HKFC GitHub Page(APP)]
+[Hoshikage Kusa Community • HKC GitHub Page(APP)]
 
 Slogan: "Here, every star-shadow deserves to be treated with tenderness."
 
-Abbreviated as Hoshikage Kusa Furry Community/HKFC, established on December 15, 2025, is a furry-culture-focused community founded and led by BiliBili Video creator - Gokugo(Ji-Wu). As a non-profit community powered by passion, we provide an open, inclusive, and equal platform for furries to communicate, interact, and expand their social networks.
+Abbreviated as Hoshikage Kusa Community/HKC, established on December 15, 2025, is a furry-culture-focused community founded and led by BiliBili Video creator - Gokugo(Ji-Wu). As a non-profit community powered by passion, we provide an open, inclusive, and equal platform for furries to communicate, interact, and expand their social networks.
 
 This APP content is licensed under Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0).
 
@@ -33,4 +33,4 @@ Furry convention information and exhibition materials are sourced from publicly 
 
 Community members' personal information is displayed with individual authorization and may not be used for other purposes without permission.
 
-The app's code and design are copyrighted by Hoshikage Kusa Furry Community and may not be reproduced or used for secondary development without permission.
+The app's code and design are copyrighted by Hoshikage Kusa Community and may not be reproduced or used for secondary development without permission.
