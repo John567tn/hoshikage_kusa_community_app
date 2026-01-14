@@ -113,12 +113,12 @@ final AboutData aboutData = AboutData(
       douyin: "https://www.douyin.com/user/MS4wLjABAAAAf2esREi8lyiTqo3pzSer48v3YFWFUHO0aqOijLrxhLA", 
       avatar: "assets/avatars/糖崽.jpg"
     ),
-    Person( 
-      name: "威尔德VAID", 
-      bilibili: "https://space.bilibili.com/25104181", 
-      douyin: null,
-      avatar: null, //"assets/avatars/威尔德VAID.jpg"
-    ),
+   // Person( 
+    //  name: "威尔德VAID", 
+     // bilibili: "https://space.bilibili.com/25104181", 
+      //douyin: null,
+      //avatar: null, //"assets/avatars/威尔德VAID.jpg"
+   // ),
     Person( 
       name: "小橙", 
       bilibili: null, 
